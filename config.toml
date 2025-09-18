@@ -4,9 +4,10 @@ theme = "catppuccin_mocha_transparent"
 line-number = "relative"
 shell = ["pwsh"]
 completion-replace = true
-bufferline = "multiple"
+bufferline = "never"
 color-modes = true
 default-line-ending = "lf"
+end-of-line-diagnostics = "hint"
 
 [editor.lsp]
 display-inlay-hints = true
@@ -14,7 +15,18 @@ display-inlay-hints = true
 [editor.cursor-shape]
 insert = "bar"
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
 [keys.normal]
 C-s = ":w"
+"esc" = "collapse_selection"
+
 [keys.insert]
 C-s = ["normal_mode", "commit_undo_checkpoint", ":write"] 
+
+[keys.normal.space]
+S-b = "file_picker_in_current_buffer_directory"
+space = "file_picker"
+f = { "b" = "buffer_picker"}
+b = { "c" = ":buffer-close", "o" = ":buffer-close-others"}
